@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Vznova</title>
+  <title>Signup - Vznova</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h2>تسجيل الدخول</h2>
-    <input type="email" id="email" placeholder="البريد الإلكتروني" />
-    <input type="password" id="password" placeholder="كلمة المرور" />
-    <button onclick="login()">دخول</button>
-    <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب</a></p>
-    <div id="message"></div>
+    <h2>إنشاء حساب</h2>
+    <input type="email" id="signupEmail" placeholder="البريد الإلكتروني" />
+    <input type="password" id="signupPassword" placeholder="كلمة المرور" />
+    <button onclick="signup()">إنشاء</button>
+    <p>لديك حساب؟ <a href="index.html">تسجيل الدخول</a></p>
+    <div id="signupMessage"></div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
   <script src="firebase-config.js"></script>
-  <script src="login.js"></script>
+  <script src="signup.js"></script>
 </body>
 </html>

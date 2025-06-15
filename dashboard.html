@@ -1,27 +1,29 @@
 
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة تحكم Vznova</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة التحكم - Vznova</title>
+  <link href="style.css" rel="stylesheet" />
 </head>
-<body class="flex bg-gray-100">
-  <aside class="w-64 h-screen bg-white shadow">
-    <div class="p-4 text-lg font-bold border-b">Vznova</div>
-    <nav class="p-4 space-y-2">
-      <a href="#" class="block p-2 rounded hover:bg-gray-200">🏆 الأرباح</a>
-      <a href="#" class="block p-2 rounded hover:bg-gray-200">💰 الإيداع</a>
-      <a href="#" class="block p-2 rounded hover:bg-gray-200">💸 السحب</a>
-      <a href="#" class="block p-2 rounded hover:bg-gray-200">⚙️ الإعدادات</a>
-      <a href="#" class="block p-2 rounded hover:bg-gray-200">👤 الملف الشخصي</a>
-      <a href="#" class="block p-2 rounded hover:bg-gray-200">🔔 الإشعارات</a>
-    </nav>
-  </aside>
-  <main class="flex-1 p-6">
-    <h1 class="text-2xl font-bold mb-4">مرحبًا بك في لوحة التحكم</h1>
-    <p>اختر أحد الأقسام من القائمة الجانبية.</p>
+<body>
+  <nav class="sidebar">
+    <ul>
+      <li><a href="profile.html">الملف الشخصي</a></li>
+      <li><a href="settings.html">الإعدادات</a></li>
+      <li><a href="deposit.html">الإيداع</a></li>
+      <li><a href="withdraw.html">السحب</a></li>
+      <li><a href="profits.html">الأرباح</a></li>
+      <li><a href="packages.html">الباقات</a></li>
+      <li><a href="notifications.html">الإشعارات</a></li>
+      <li><a href="about.html">نبذة عن الشركة</a></li>
+      <li><a href="index.html">تسجيل الخروج</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+    <h1>مرحبًا بك في منصة Vznova</h1>
+    <p>اختر قسمًا من القائمة للبدء.</p>
   </main>
 </body>
 </html>

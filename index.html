@@ -1,33 +1,73 @@
 
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>تسجيل الدخول | Vznova</title>
-  <link href="styles.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vznova | تسجيل / دخول</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <div class="container">
-    <h2>مرحباً بك في <strong>Vznova</strong></h2>
-    <div class="tabs">
-      <button id="signup-tab" class="active">تسجيل حساب جديد</button>
-      <button id="login-tab">تسجيل الدخول</button>
-    </div>
-    <form id="signup-form" class="form active">
-      <input type="text" placeholder="الاسم واللقب" required>
-      <input type="email" placeholder="البريد الإلكتروني" required>
-      <input type="password" placeholder="كلمة المرور" required>
-      <input type="password" placeholder="تأكيد كلمة المرور" required>
-      <input type="text" placeholder="رقم الهاتف" required>
-      <button type="submit">إنشاء حساب</button>
-    </form>
-    <form id="login-form" class="form">
-      <input type="email" placeholder="البريد الإلكتروني" required>
-      <input type="password" placeholder="كلمة المرور" required>
-      <button type="submit">تسجيل الدخول</button>
+<body class="bg-gray-100">
+  <div class="max-w-md mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
+    <h1 class="text-3xl font-medium">مرحباً بك في Vznova</h1>
+    <p class="text-slate-500">سجّل أو قم بتسجيل الدخول للوصول إلى لوحة التحكم</p>
+
+    <form id="authForm" class="my-10">
+      <div class="flex flex-col space-y-5">
+        <input id="fullName" type="text" placeholder="الاسم واللقب" class="p-3 rounded border border-slate-200">
+        <input id="email" type="email" placeholder="البريد الإلكتروني" class="p-3 rounded border border-slate-200">
+        <input id="phone" type="tel" placeholder="رقم الهاتف" class="p-3 rounded border border-slate-200">
+        <input id="password" type="password" placeholder="كلمة المرور" class="p-3 rounded border border-slate-200">
+        <input id="confirmPassword" type="password" placeholder="تأكيد كلمة المرور" class="p-3 rounded border border-slate-200">
+
+        <button type="submit" class="bg-blue-500 text-white py-3 rounded">تسجيل / دخول</button>
+      </div>
     </form>
   </div>
-  <script src="script.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCxhcWhSKvjXFmt6grD43zu7sqs-wy_xeY",
+      authDomain: "vznova-d6497.firebaseapp.com",
+      projectId: "vznova-d6497",
+      storageBucket: "vznova-d6497.appspot.com",
+      messagingSenderId: "608106047555",
+      appId: "1:608106047555:web:97176785c08738ca3e8cf6",
+      measurementId: "G-NLE2Y9SNFS"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const authForm = document.getElementById("authForm");
+
+    authForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("كلمة المرور غير متطابقة");
+        return;
+      }
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        window.location.href = "dashboard.html";
+      } catch (error) {
+        // إذا كان المستخدم مسجل بالفعل، نجرب تسجيل الدخول
+        try {
+          await signInWithEmailAndPassword(auth, email, password);
+          window.location.href = "dashboard.html";
+        } catch (loginError) {
+          alert("خطأ في تسجيل الدخول: " + loginError.message);
+        }
+      }
+    });
+  </script>
 </body>
 </html>

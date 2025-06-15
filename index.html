@@ -1,19 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تسجيل الدخول - Vznova</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>لوحة تحكم Vznova</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <h2>تسجيل الدخول</h2>
-    <input type="email" id="email" placeholder="البريد الإلكتروني" />
-    <input type="password" id="password" placeholder="كلمة المرور" />
-    <button onclick="login()">دخول</button>
-  </div>
-  <script src="firebase-config.js"></script>
-  <script src="login.js"></script>
+<body class="flex bg-gray-100 h-screen">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-md">
+    <div class="p-4 text-xl font-bold border-b">Vznova</div>
+    <nav class="p-4 space-y-2">
+      <a href="index.html" class="block p-2 rounded hover:bg-gray-200">الرئيسية</a>
+      <a href="projects.html" class="block p-2 rounded hover:bg-gray-200">المشاريع</a>
+      <a href="wallet.html" class="block p-2 rounded hover:bg-gray-200">المحفظة</a>
+      <a href="notifications.html" class="block p-2 rounded hover:bg-gray-200">الإشعارات</a>
+      <a href="profile.html" class="block p-2 rounded hover:bg-gray-200">الملف الشخصي</a>
+      <a href="login.html" class="block p-2 rounded text-red-500 hover:bg-red-100">تسجيل الخروج</a>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex-1 p-6">
+    <h1 class="text-2xl font-semibold mb-4">مرحبًا بك في لوحة التحكم</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white p-4 rounded shadow">
+        <p class="text-gray-500">الرصيد</p>
+        <h2 class="text-xl font-bold">0.00 $</h2>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <p class="text-gray-500">عدد المشاريع</p>
+        <h2 class="text-xl font-bold">0</h2>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <p class="text-gray-500">الأرباح</p>
+        <h2 class="text-xl font-bold">0.00 $</h2>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

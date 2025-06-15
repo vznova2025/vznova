@@ -1,0 +1,1 @@
+console.log('مرحبًا بك في Vznova');

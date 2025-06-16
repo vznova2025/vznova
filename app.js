@@ -1,1 +1,1 @@
-console.log("Vznova login loaded");
+console.log('Firebase and routing logic here');

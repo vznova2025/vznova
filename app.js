@@ -1,1 +1,1 @@
-console.log('Firebase and routing logic here');
+<!-- assets/js/app.js placeholder -->
